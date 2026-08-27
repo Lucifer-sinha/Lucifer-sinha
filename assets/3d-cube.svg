@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400">
+  <defs>
+    <!-- Background grid pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+
+    <!-- Glow filters for the glowing neon edges -->
+    <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-purple" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-pink" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    /* GitHub dark theme background */
+    .bg { fill: #0D1117; }
+    
+    /* Bobbing animation for the entire cube */
+    .cube-wrapper {
+      animation: bob 4s ease-in-out infinite;
+    }
+    
+    /* Shadow animation that scales inversely with bobbing */
+    .shadow {
+      animation: shadow 4s ease-in-out infinite;
+      transform-origin: 600px 320px;
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes shadow {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(0.8); opacity: 0.2; }
+    }
+    
+    /* Floating particles animation */
+    .particle {
+      animation: float 10s infinite linear;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); opacity: 0; }
+      10% { opacity: 0.8; }
+      90% { opacity: 0.8; }
+      100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
+    }
+
+    /* Cube faces styling */
+    .face {
+      stroke-width: 2;
+      stroke-linejoin: round;
+    }
+    
+    .face-top {
+      fill: rgba(139, 92, 246, 0.15);
+      stroke: #8B5CF6;
+      filter: url(#glow-purple);
+      animation: pulse-purple 4s infinite alternate;
+    }
+    .face-left {
+      fill: rgba(0, 245, 255, 0.15);
+      stroke: #00F5FF;
+      filter: url(#glow-cyan);
+      animation: pulse-cyan 4s infinite alternate 1s;
+    }
+    .face-right {
+      fill: rgba(255, 0, 110, 0.15);
+      stroke: #FF006E;
+      filter: url(#glow-pink);
+      animation: pulse-pink 4s infinite alternate 2s;
+    }
+
+    @keyframes pulse-purple { 0% { fill-opacity: 0.1; } 100% { fill-opacity: 0.3; } }
+    @keyframes pulse-cyan { 0% { fill-opacity: 0.1; } 100% { fill-opacity: 0.3; } }
+    @keyframes pulse-pink { 0% { fill-opacity: 0.1; } 100% { fill-opacity: 0.3; } }
+    
+    /* Isometric Text Styling */
+    .text {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-weight: 800;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      letter-spacing: 2px;
+    }
+    .text-top { fill: #8B5CF6; font-size: 20px; }
+    .text-left { fill: #00F5FF; font-size: 24px; }
+    .text-right { fill: #FF006E; font-size: 24px; }
+
+    /* Cycling text animation */
+    .label-1 { animation: cycle1 8s infinite; }
+    .label-2 { animation: cycle2 8s infinite; }
+
+    @keyframes cycle1 {
+      0%, 40% { opacity: 1; }
+      50%, 90% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes cycle2 {
+      0%, 40% { opacity: 0; }
+      50%, 90% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+  </style>
+
+  <!-- Dark Background -->
+  <rect width="100%" height="100%" class="bg"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <!-- Floating Particles -->
+  <g fill="#00F5FF" class="particle" style="animation-delay: 0s"><circle cx="450" cy="250" r="2"/></g>
+  <g fill="#8B5CF6" class="particle" style="animation-delay: -2s"><circle cx="750" cy="200" r="3"/></g>
+  <g fill="#FF006E" class="particle" style="animation-delay: -4s"><circle cx="500" cy="150" r="2.5"/></g>
+  <g fill="#00F5FF" class="particle" style="animation-delay: -6s"><circle cx="650" cy="280" r="1.5"/></g>
+  <g fill="#8B5CF6" class="particle" style="animation-delay: -1s"><circle cx="550" cy="100" r="2"/></g>
+  <g fill="#FF006E" class="particle" style="animation-delay: -7s"><circle cx="700" cy="120" r="2"/></g>
+  <g fill="#00F5FF" class="particle" style="animation-delay: -3s"><circle cx="400" cy="180" r="3"/></g>
+  <g fill="#FF006E" class="particle" style="animation-delay: -8s"><circle cx="800" cy="220" r="2"/></g>
+
+  <!-- Soft Shadow under the cube -->
+  <ellipse cx="600" cy="330" rx="90" ry="15" fill="rgba(0,0,0,0.8)" class="shadow" filter="blur(6px)"/>
+
+  <!-- 3D Isometric Cube -->
+  <g class="cube-wrapper">
+    <g transform="translate(600, 190)">
+      
+      <!-- Top Face -->
+      <polygon points="0,0 104,-60 0,-120 -104,-60" class="face face-top"/>
+      
+      <!-- Left Face -->
+      <polygon points="0,0 -104,-60 -104,60 0,120" class="face face-left"/>
+      
+      <!-- Right Face -->
+      <polygon points="0,0 104,-60 104,60 0,120" class="face face-right"/>
+      
+      <!-- Left Face Text (Cycles AI/ML & PYTHON) -->
+      <g transform="translate(-52, 30) skewY(30)">
+        <text class="text text-left label-1">AI/ML</text>
+        <text class="text text-left label-2">PYTHON</text>
+      </g>
+
+      <!-- Right Face Text (Cycles ENGINEER & AWS) -->
+      <g transform="translate(52, 30) skewY(-30)">
+        <text class="text text-right label-1">ENGINEER</text>
+        <text class="text text-right label-2">AWS</text>
+      </g>
+
+      <!-- Top Face Text (Cycles FULL STACK & LLM) -->
+      <!-- We scale and rotate to roughly match the isometric top plane -->
+      <g transform="translate(0, -60) scale(1, 0.5) rotate(-45)">
+        <text class="text text-top label-1">FULL STACK</text>
+        <text class="text text-top label-2">LLM</text>
+      </g>
+      
+    </g>
+  </g>
+</svg>

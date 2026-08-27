@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420">
+    <defs>
+        <!-- Glow Filter -->
+        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+        
+        <filter id="dot-glow">
+            <feGaussianBlur stdDeviation="1.5" result="blur" />
+            <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+
+        <!-- Gradients -->
+        <linearGradient id="grad-cyan" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#00F5FF" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#00F5FF" stop-opacity="1"/>
+        </linearGradient>
+        <linearGradient id="grad-purple" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#8B5CF6" stop-opacity="1"/>
+        </linearGradient>
+        <linearGradient id="grad-gold" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#FFD700" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#FFD700" stop-opacity="1"/>
+        </linearGradient>
+        <linearGradient id="grad-green" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#00FF41" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#00FF41" stop-opacity="1"/>
+        </linearGradient>
+    </defs>
+
+    <style>
+        .title { font-family: 'Courier New', Courier, monospace; font-size: 16px; font-weight: bold; fill: #7D8590; text-anchor: middle; letter-spacing: 4px; }
+        .label { font-family: 'Courier New', Courier, monospace; font-size: 13px; fill: #E6EDF3; text-anchor: end; font-weight: bold; }
+        .percent { font-family: 'Courier New', Courier, monospace; font-size: 13px; text-anchor: start; font-weight: bold; }
+        .hud-line { stroke: #1C2128; stroke-width: 1; }
+        .hud-bracket { stroke: #7D8590; stroke-width: 2; fill: none; opacity: 0.5; }
+        
+        .pulse { animation: pulse-anim 2s infinite ease-in-out; }
+        @keyframes pulse-anim {
+            0%, 100% { opacity: 0.5; r: 3; }
+            50% { opacity: 1; r: 5; }
+        }
+
+        /* Bar Animations */
+        .bar-1 { animation: fill-1 2s cubic-bezier(0.1, 0.8, 0.2, 1) forwards; }
+        .bar-2 { animation: fill-2 2s cubic-bezier(0.1, 0.8, 0.2, 1) 0.3s forwards; }
+        .bar-3 { animation: fill-3 2s cubic-bezier(0.1, 0.8, 0.2, 1) 0.6s forwards; }
+        .bar-4 { animation: fill-4 2s cubic-bezier(0.1, 0.8, 0.2, 1) 0.9s forwards; }
+        .bar-5 { animation: fill-5 2s cubic-bezier(0.1, 0.8, 0.2, 1) 1.2s forwards; }
+        .bar-6 { animation: fill-6 2s cubic-bezier(0.1, 0.8, 0.2, 1) 1.5s forwards; }
+        .bar-7 { animation: fill-7 2s cubic-bezier(0.1, 0.8, 0.2, 1) 1.8s forwards; }
+        .bar-8 { animation: fill-8 2s cubic-bezier(0.1, 0.8, 0.2, 1) 2.1s forwards; }
+        
+        /* Dot position animations */
+        .dot-1 { animation: dot-1 2s cubic-bezier(0.1, 0.8, 0.2, 1) forwards; }
+        .dot-2 { animation: dot-2 2s cubic-bezier(0.1, 0.8, 0.2, 1) 0.3s forwards; }
+        .dot-3 { animation: dot-3 2s cubic-bezier(0.1, 0.8, 0.2, 1) 0.6s forwards; }
+        .dot-4 { animation: dot-4 2s cubic-bezier(0.1, 0.8, 0.2, 1) 0.9s forwards; }
+        .dot-5 { animation: dot-5 2s cubic-bezier(0.1, 0.8, 0.2, 1) 1.2s forwards; }
+        .dot-6 { animation: dot-6 2s cubic-bezier(0.1, 0.8, 0.2, 1) 1.5s forwards; }
+        .dot-7 { animation: dot-7 2s cubic-bezier(0.1, 0.8, 0.2, 1) 1.8s forwards; }
+        .dot-8 { animation: dot-8 2s cubic-bezier(0.1, 0.8, 0.2, 1) 2.1s forwards; }
+        
+        /* Opacity fades */
+        .fade-in { opacity: 0; animation: fade-in-anim 0.5s forwards; }
+        .fade-delay-1 { animation-delay: 2s; }
+        .fade-delay-2 { animation-delay: 2.3s; }
+        .fade-delay-3 { animation-delay: 2.6s; }
+        .fade-delay-4 { animation-delay: 2.9s; }
+        .fade-delay-5 { animation-delay: 3.2s; }
+        .fade-delay-6 { animation-delay: 3.5s; }
+        .fade-delay-7 { animation-delay: 3.8s; }
+        .fade-delay-8 { animation-delay: 4.1s; }
+
+        @keyframes fade-in-anim { to { opacity: 1; } }
+        
+        /* Keyframes */
+        @keyframes fill-1 { 0% { width: 0; } 100% { width: 855px; } }
+        @keyframes fill-2 { 0% { width: 0; } 100% { width: 810px; } }
+        @keyframes fill-3 { 0% { width: 0; } 100% { width: 765px; } }
+        @keyframes fill-4 { 0% { width: 0; } 100% { width: 792px; } }
+        @keyframes fill-5 { 0% { width: 0; } 100% { width: 738px; } }
+        @keyframes fill-6 { 0% { width: 0; } 100% { width: 702px; } }
+        @keyframes fill-7 { 0% { width: 0; } 100% { width: 765px; } }
+        @keyframes fill-8 { 0% { width: 0; } 100% { width: 810px; } }
+
+        @keyframes dot-1 { 0% { cx: 200px; } 100% { cx: 1055px; } }
+        @keyframes dot-2 { 0% { cx: 200px; } 100% { cx: 1010px; } }
+        @keyframes dot-3 { 0% { cx: 200px; } 100% { cx: 965px; } }
+        @keyframes dot-4 { 0% { cx: 200px; } 100% { cx: 992px; } }
+        @keyframes dot-5 { 0% { cx: 200px; } 100% { cx: 938px; } }
+        @keyframes dot-6 { 0% { cx: 200px; } 100% { cx: 902px; } }
+        @keyframes dot-7 { 0% { cx: 200px; } 100% { cx: 965px; } }
+        @keyframes dot-8 { 0% { cx: 200px; } 100% { cx: 1010px; } }
+    </style>
+
+    <rect width="100%" height="100%" fill="#0D1117" />
+    
+    <!-- Title -->
+    <text x="600" y="30" class="title">PROFICIENCY MATRIX</text>
+
+    <!-- Decorative HUD Brackets -->
+    <path d="M 40,20 L 20,20 L 20,400 L 40,400" class="hud-bracket" />
+    <path d="M 1160,20 L 1180,20 L 1180,400 L 1160,400" class="hud-bracket" />
+    <circle cx="20" cy="20" r="2" fill="#7D8590" />
+    <circle cx="20" cy="400" r="2" fill="#7D8590" />
+    <circle cx="1180" cy="20" r="2" fill="#7D8590" />
+    <circle cx="1180" cy="400" r="2" fill="#7D8590" />
+
+    <!-- Bar 1: Python -->
+    <text x="180" y="70" class="label">Python</text>
+    <rect x="200" y="60" width="900" height="12" rx="6" fill="#161B22" />
+    <rect x="200" y="60" width="0" height="12" rx="6" fill="url(#grad-cyan)" class="bar-1" filter="url(#glow)"/>
+    <circle cx="200" cy="66" r="3" fill="#FFFFFF" class="dot-1 pulse fade-in fade-delay-1" filter="url(#dot-glow)"/>
+    <text x="1120" y="70" class="percent fade-in fade-delay-1" fill="#00F5FF">95%</text>
+    <line x1="180" y1="85" x2="1120" y2="85" class="hud-line" />
+
+    <!-- Bar 2: AI/ML & LLMs -->
+    <text x="180" y="110" class="label">AI/ML &amp; LLMs</text>
+    <rect x="200" y="100" width="900" height="12" rx="6" fill="#161B22" />
+    <rect x="200" y="100" width="0" height="12" rx="6" fill="url(#grad-purple)" class="bar-2" filter="url(#glow)"/>
+    <circle cx="200" cy="106" r="3" fill="#FFFFFF" class="dot-2 pulse fade-in fade-delay-2" filter="url(#dot-glow)"/>
+    <text x="1120" y="110" class="percent fade-in fade-delay-2" fill="#8B5CF6">90%</text>
+    <line x1="180" y1="125" x2="1120" y2="125" class="hud-line" />
+
+    <!-- Bar 3: Java -->
+    <text x="180" y="150" class="label">Java</text>
+    <rect x="200" y="140" width="900" height="12" rx="6" fill="#161B22" />
+    <rect x="200" y="140" width="0" height="12" rx="6" fill="url(#grad-cyan)" class="bar-3" filter="url(#glow)"/>
+    <circle cx="200" cy="146" r="3" fill="#FFFFFF" class="dot-3 pulse fade-in fade-delay-3" filter="url(#dot-glow)"/>
+    <text x="1120" y="150" class="percent fade-in fade-delay-3" fill="#00F5FF">85%</text>
+    <line x1="180" y1="165" x2="1120" y2="165" class="hud-line" />
+
+    <!-- Bar 4: Flask & REST APIs -->
+    <text x="180" y="190" class="label">Flask &amp; REST APIs</text>
+    <rect x="200" y="180" width="900" height="12" rx="6" fill="#161B22" />
+    <rect x="200" y="180" width="0" height="12" rx="6" fill="url(#grad-purple)" class="bar-4" filter="url(#glow)"/>
+    <circle cx="200" cy="186" r="3" fill="#FFFFFF" class="dot-4 pulse fade-in fade-delay-4" filter="url(#dot-glow)"/>
+    <text x="1120" y="190" class="percent fade-in fade-delay-4" fill="#8B5CF6">88%</text>
+    <line x1="180" y1="205" x2="1120" y2="205" class="hud-line" />
+
+    <!-- Bar 5: SQL & MySQL -->
+    <text x="180" y="230" class="label">SQL &amp; MySQL</text>
+    <rect x="200" y="220" width="900" height="12" rx="6" fill="#161B22" />
+    <rect x="200" y="220" width="0" height="12" rx="6" fill="url(#grad-gold)" class="bar-5" filter="url(#glow)"/>
+    <circle cx="200" cy="226" r="3" fill="#FFFFFF" class="dot-5 pulse fade-in fade-delay-5" filter="url(#dot-glow)"/>
+    <text x="1120" y="230" class="percent fade-in fade-delay-5" fill="#FFD700">82%</text>
+    <line x1="180" y1="245" x2="1120" y2="245" class="hud-line" />
+
+    <!-- Bar 6: AWS & Cloud -->
+    <text x="180" y="270" class="label">AWS &amp; Cloud</text>
+    <rect x="200" y="260" width="900" height="12" rx="6" fill="#161B22" />
+    <rect x="200" y="260" width="0" height="12" rx="6" fill="url(#grad-gold)" class="bar-6" filter="url(#glow)"/>
+    <circle cx="200" cy="266" r="3" fill="#FFFFFF" class="dot-6 pulse fade-in fade-delay-6" filter="url(#dot-glow)"/>
+    <text x="1120" y="270" class="percent fade-in fade-delay-6" fill="#FFD700">78%</text>
+    <line x1="180" y1="285" x2="1120" y2="285" class="hud-line" />
+
+    <!-- Bar 7: HTML & CSS -->
+    <text x="180" y="310" class="label">HTML &amp; CSS</text>
+    <rect x="200" y="300" width="900" height="12" rx="6" fill="#161B22" />
+    <rect x="200" y="300" width="0" height="12" rx="6" fill="url(#grad-green)" class="bar-7" filter="url(#glow)"/>
+    <circle cx="200" cy="306" r="3" fill="#FFFFFF" class="dot-7 pulse fade-in fade-delay-7" filter="url(#dot-glow)"/>
+    <text x="1120" y="310" class="percent fade-in fade-delay-7" fill="#00FF41">85%</text>
+    <line x1="180" y1="325" x2="1120" y2="325" class="hud-line" />
+
+    <!-- Bar 8: Git & GitHub -->
+    <text x="180" y="350" class="label">Git &amp; GitHub</text>
+    <rect x="200" y="340" width="900" height="12" rx="6" fill="#161B22" />
+    <rect x="200" y="340" width="0" height="12" rx="6" fill="url(#grad-green)" class="bar-8" filter="url(#glow)"/>
+    <circle cx="200" cy="346" r="3" fill="#FFFFFF" class="dot-8 pulse fade-in fade-delay-8" filter="url(#dot-glow)"/>
+    <text x="1120" y="350" class="percent fade-in fade-delay-8" fill="#00FF41">90%</text>
+    <!-- Last line optional, omitted for cleaner edge -->
+
+</svg>
