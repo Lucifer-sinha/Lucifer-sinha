@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500">
+  <defs>
+    <linearGradient id="radarGradient" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#00F5FF" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#00F5FF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  
+  <style>
+    @keyframes sweep {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    @keyframes flash {
+      0% { filter: brightness(2.5) drop-shadow(0 0 6px currentColor); opacity: 1; }
+      10%, 100% { filter: brightness(1); opacity: 0.7; }
+    }
+    
+    .radar-sweep {
+      animation: sweep 8s linear infinite;
+      transform-origin: 600px 250px;
+    }
+    
+    .tech-item {
+      animation: flash 8s linear infinite;
+      opacity: 0.7;
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: bold;
+      font-size: 11px;
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#0D1117" />
+  
+  <!-- Subtle Crosshairs -->
+  <line x1="600" y1="0" x2="600" y2="500" stroke="#00F5FF" stroke-opacity="0.08" stroke-width="1" />
+  <line x1="0" y1="250" x2="1200" y2="250" stroke="#00F5FF" stroke-opacity="0.08" stroke-width="1" />
+
+  <!-- Corner HUD Elements -->
+  <g stroke="#00F5FF" stroke-opacity="0.3" stroke-width="2" fill="none">
+    <path d="M 40 60 L 40 40 L 60 40" />
+    <path d="M 40 440 L 40 460 L 60 460" />
+    <path d="M 1160 60 L 1160 40 L 1140 40" />
+    <path d="M 1160 440 L 1160 460 L 1140 460" />
+  </g>
+  <text x="45" y="35" fill="#7D8590" font-family="monospace" font-size="12">SYS.OP.ONLINE</text>
+  <text x="1155" y="35" fill="#7D8590" font-family="monospace" font-size="12" text-anchor="end">TECH_STACK v2.0</text>
+  <text x="1155" y="475" fill="#7D8590" font-family="monospace" font-size="10" text-anchor="end">SCAN_RATE: 8s</text>
+  <text x="45" y="475" fill="#7D8590" font-family="monospace" font-size="10">TARGETS: 12</text>
+
+  <!-- Radar Rings -->
+  <circle cx="600" cy="250" r="80" fill="none" stroke="#00F5FF" stroke-width="1.5" stroke-dasharray="4 6" stroke-opacity="0.15" />
+  <circle cx="600" cy="250" r="140" fill="none" stroke="#00F5FF" stroke-width="1.5" stroke-dasharray="4 6" stroke-opacity="0.15" />
+  <circle cx="600" cy="250" r="200" fill="none" stroke="#00F5FF" stroke-width="1.5" stroke-dasharray="4 6" stroke-opacity="0.15" />
+
+  <!-- Ring Labels -->
+  <text x="600" y="182" fill="#00F5FF" fill-opacity="0.2" font-family="monospace" font-size="10" text-anchor="middle">CORE</text>
+  <text x="600" y="122" fill="#00F5FF" fill-opacity="0.2" font-family="monospace" font-size="10" text-anchor="middle">STRONG</text>
+  <text x="600" y="62" fill="#00F5FF" fill-opacity="0.2" font-family="monospace" font-size="10" text-anchor="middle">TOOLS</text>
+
+  <!-- Radar Sweep Line -->
+  <g class="radar-sweep">
+    <path d="M 600 250 L 850 250 A 250 250 0 0 0 600 0 Z" fill="url(#radarGradient)" />
+    <line x1="600" y1="250" x2="850" y2="250" stroke="#00F5FF" stroke-width="2" stroke-opacity="0.8" />
+  </g>
+
+  <!-- Technology Dots and Labels -->
+  
+  <!-- INNER RING (Core) -->
+  <g class="tech-item" style="color: #00F5FF; animation-delay: 5.0s">
+    <circle cx="543" cy="193" r="6" fill="currentColor"/>
+    <text x="533" y="197" fill="currentColor" text-anchor="end">Python</text>
+  </g>
+  <g class="tech-item" style="color: #00F5FF; animation-delay: 7.0s">
+    <circle cx="656" cy="193" r="6" fill="currentColor"/>
+    <text x="666" y="197" fill="currentColor" text-anchor="start">Java</text>
+  </g>
+
+  <!-- MIDDLE RING (Strong) -->
+  <g class="tech-item" style="color: #00F5FF; animation-delay: 4.0s">
+    <circle cx="460" cy="250" r="5" fill="currentColor"/>
+    <text x="450" y="254" fill="currentColor" text-anchor="end">Flask</text>
+  </g>
+  <g class="tech-item" style="color: #FFD700; animation-delay: 0.0s">
+    <circle cx="740" cy="250" r="5" fill="currentColor"/>
+    <text x="750" y="254" fill="currentColor" text-anchor="start">AWS</text>
+  </g>
+  <g class="tech-item" style="color: #00F5FF; animation-delay: 3.0s">
+    <circle cx="501" cy="349" r="5" fill="currentColor"/>
+    <text x="491" y="353" fill="currentColor" text-anchor="end">SQL/MySQL</text>
+  </g>
+  <g class="tech-item" style="color: #00F5FF; animation-delay: 1.0s">
+    <circle cx="699" cy="349" r="5" fill="currentColor"/>
+    <text x="709" y="353" fill="currentColor" text-anchor="start">REST APIs</text>
+  </g>
+
+  <!-- OUTER RING (Tools/Supporting) -->
+  <g class="tech-item" style="color: #00FF41; animation-delay: 6.0s">
+    <circle cx="600" cy="50" r="4" fill="currentColor"/>
+    <text x="610" y="54" fill="currentColor" text-anchor="start">Git</text>
+  </g>
+  <g class="tech-item" style="color: #00F5FF; animation-delay: 0.44s">
+    <circle cx="788" cy="318" r="4" fill="currentColor"/>
+    <text x="798" y="322" fill="currentColor" text-anchor="start">HTML/CSS</text>
+  </g>
+  <g class="tech-item" style="color: #00FF41; animation-delay: 2.0s">
+    <circle cx="600" cy="450" r="4" fill="currentColor"/>
+    <text x="610" y="454" fill="currentColor" text-anchor="start">VS Code</text>
+  </g>
+  <g class="tech-item" style="color: #FFD700; animation-delay: 3.55s">
+    <circle cx="412" cy="318" r="4" fill="currentColor"/>
+    <text x="402" y="322" fill="currentColor" text-anchor="end">Cloudflare</text>
+  </g>
+  <g class="tech-item" style="color: #8B5CF6; animation-delay: 7.33s">
+    <circle cx="773" cy="150" r="4" fill="currentColor"/>
+    <text x="783" y="154" fill="currentColor" text-anchor="start">Transformers/LLM</text>
+  </g>
+  <g class="tech-item" style="color: #8B5CF6; animation-delay: 4.66s">
+    <circle cx="427" cy="150" r="4" fill="currentColor"/>
+    <text x="417" y="154" fill="currentColor" text-anchor="end">RAG</text>
+  </g>
+</svg>

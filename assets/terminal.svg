@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%">
+  <defs>
+    <filter id="termGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="termBar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2D333B"/>
+      <stop offset="100%" stop-color="#22272E"/>
+    </linearGradient>
+    <clipPath id="termClip">
+      <rect x="20" y="55" width="1160" height="310" rx="0"/>
+    </clipPath>
+  </defs>
+
+  <style>
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    @keyframes typeIn1 {
+      0%, 5% { opacity: 0; } 6%, 100% { opacity: 1; }
+    }
+    @keyframes typeIn2 {
+      0%, 12% { opacity: 0; } 13%, 100% { opacity: 1; }
+    }
+    @keyframes typeIn3 {
+      0%, 20% { opacity: 0; } 21%, 100% { opacity: 1; }
+    }
+    @keyframes typeIn4 {
+      0%, 30% { opacity: 0; } 31%, 100% { opacity: 1; }
+    }
+    @keyframes typeIn5 {
+      0%, 40% { opacity: 0; } 41%, 100% { opacity: 1; }
+    }
+    @keyframes typeIn6 {
+      0%, 50% { opacity: 0; } 51%, 100% { opacity: 1; }
+    }
+    @keyframes typeIn7 {
+      0%, 60% { opacity: 0; } 61%, 100% { opacity: 1; }
+    }
+    @keyframes typeIn8 {
+      0%, 70% { opacity: 0; } 71%, 100% { opacity: 1; }
+    }
+    @keyframes typeIn9 {
+      0%, 78% { opacity: 0; } 79%, 100% { opacity: 1; }
+    }
+    @keyframes typeIn10 {
+      0%, 85% { opacity: 0; } 86%, 100% { opacity: 1; }
+    }
+    @keyframes scanline {
+      0% { transform: translateY(55px); }
+      100% { transform: translateY(365px); }
+    }
+    @keyframes flicker {
+      0%, 100% { opacity: 0.97; }
+      50% { opacity: 1; }
+      25%, 75% { opacity: 0.98; }
+    }
+    .term-text { font-family: 'Courier New', 'Consolas', monospace; font-size: 14px; }
+    .prompt { fill: #00FF41; }
+    .command { fill: #00F5FF; }
+    .output { fill: #E6EDF3; }
+    .comment { fill: #7D8590; }
+    .highlight { fill: #FFD700; }
+    .pink { fill: #FF006E; }
+    .purple { fill: #8B5CF6; }
+    .cursor { animation: blink 1s infinite; }
+    .line1 { animation: typeIn1 12s infinite; }
+    .line2 { animation: typeIn2 12s infinite; }
+    .line3 { animation: typeIn3 12s infinite; }
+    .line4 { animation: typeIn4 12s infinite; }
+    .line5 { animation: typeIn5 12s infinite; }
+    .line6 { animation: typeIn6 12s infinite; }
+    .line7 { animation: typeIn7 12s infinite; }
+    .line8 { animation: typeIn8 12s infinite; }
+    .line9 { animation: typeIn9 12s infinite; }
+    .line10 { animation: typeIn10 12s infinite; }
+  </style>
+
+  <!-- Terminal Window -->
+  <rect x="10" y="10" width="1180" height="360" rx="12" fill="#0D1117" stroke="#30363D" stroke-width="1.5"/>
+  
+  <!-- Title Bar -->
+  <rect x="10" y="10" width="1180" height="40" rx="12" fill="url(#termBar)"/>
+  <rect x="10" y="38" width="1180" height="12" fill="url(#termBar)"/>
+  
+  <!-- Window Buttons -->
+  <circle cx="38" cy="30" r="7" fill="#FF5F57"/>
+  <circle cx="62" cy="30" r="7" fill="#FFBD2E"/>
+  <circle cx="86" cy="30" r="7" fill="#28CA41"/>
+  
+  <!-- Title -->
+  <text x="600" y="35" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#7D8590">ansh@universe:~/portfolio — zsh</text>
+
+  <!-- Terminal Content with clip -->
+  <g clip-path="url(#termClip)" style="animation: flicker 4s infinite;">
+    
+    <!-- Scanline effect -->
+    <rect x="20" y="0" width="1160" height="2" fill="#00F5FF" opacity="0.03" style="animation: scanline 8s linear infinite;"/>
+
+    <!-- Line 1: whoami -->
+    <g class="line1">
+      <text x="40" y="82" class="term-text prompt">ansh@universe</text>
+      <text x="178" y="82" class="term-text comment">:</text>
+      <text x="186" y="82" class="term-text command">~$</text>
+      <text x="210" y="82" class="term-text output"> whoami</text>
+    </g>
+
+    <!-- Line 2: Response -->
+    <g class="line2">
+      <text x="40" y="108" class="term-text highlight">→ Software Engineer | AI/ML Architect | Full-Stack Developer</text>
+    </g>
+
+    <!-- Line 3: cat mission -->
+    <g class="line3">
+      <text x="40" y="142" class="term-text prompt">ansh@universe</text>
+      <text x="178" y="142" class="term-text comment">:</text>
+      <text x="186" y="142" class="term-text command">~$</text>
+      <text x="210" y="142" class="term-text output"> cat /etc/mission.conf</text>
+    </g>
+
+    <!-- Line 4: Mission response -->
+    <g class="line4">
+      <text x="40" y="168" class="term-text pink">"Building intelligent, scalable, and user-focused software systems"</text>
+    </g>
+
+    <!-- Line 5: Skills -->
+    <g class="line5">
+      <text x="40" y="202" class="term-text prompt">ansh@universe</text>
+      <text x="178" y="202" class="term-text comment">:</text>
+      <text x="186" y="202" class="term-text command">~$</text>
+      <text x="210" y="202" class="term-text output"> python3 -c "from brain import skills; skills.list()"</text>
+    </g>
+
+    <!-- Line 6-8: Skills output -->
+    <g class="line6">
+      <text x="40" y="228" class="term-text">
+        <tspan fill="#8B5CF6">🧠 AI/ML</tspan>
+        <tspan fill="#7D8590"> ════ </tspan>
+        <tspan fill="#E6EDF3">LLMs • Transformers • RAG</tspan>
+      </text>
+    </g>
+    <g class="line7">
+      <text x="40" y="254" class="term-text">
+        <tspan fill="#00F5FF">🐍 CODE</tspan>
+        <tspan fill="#7D8590"> ════ </tspan>
+        <tspan fill="#E6EDF3">Python • Java • Flask • REST APIs</tspan>
+      </text>
+    </g>
+    <g class="line8">
+      <text x="40" y="280" class="term-text">
+        <tspan fill="#00FF41">☁️ INFRA</tspan>
+        <tspan fill="#7D8590"> ════ </tspan>
+        <tspan fill="#E6EDF3">AWS • Cloudflare • SQL • Git</tspan>
+      </text>
+    </g>
+
+    <!-- Line 9: Philosophy -->
+    <g class="line9">
+      <text x="40" y="314" class="term-text prompt">ansh@universe</text>
+      <text x="178" y="314" class="term-text comment">:</text>
+      <text x="186" y="314" class="term-text command">~$</text>
+      <text x="210" y="314" class="term-text output"> echo $PHILOSOPHY</text>
+    </g>
+
+    <!-- Line 10: Philosophy response -->
+    <g class="line10">
+      <text x="40" y="340" class="term-text">
+        <tspan fill="#FFD700">Think</tspan>
+        <tspan fill="#7D8590"> → </tspan>
+        <tspan fill="#00F5FF">Build</tspan>
+        <tspan fill="#7D8590"> → </tspan>
+        <tspan fill="#FF006E">Break</tspan>
+        <tspan fill="#7D8590"> → </tspan>
+        <tspan fill="#8B5CF6">Debug</tspan>
+        <tspan fill="#7D8590"> → </tspan>
+        <tspan fill="#00FF41">Deploy</tspan>
+        <tspan fill="#7D8590"> → </tspan>
+        <tspan fill="#FFD700">Evolve</tspan>
+      </text>
+    </g>
+
+    <!-- Blinking cursor -->
+    <rect x="260" y="348" width="10" height="18" fill="#00FF41" class="cursor" opacity="0.9"/>
+
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 60" width="1200" height="60">
+  <style>
+    .w1 { animation: wave 12s linear infinite; }
+    .w2 { animation: wave 18s linear infinite; }
+    .w3 { animation: wave 9s linear infinite; }
+    @keyframes wave {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-1200px); }
+    }
+  </style>
+  <path class="w1" fill="#00F5FF" opacity="0.3" d="M 0 30 Q 150 10 300 30 T 600 30 T 900 30 T 1200 30 T 1500 30 T 1800 30 T 2100 30 T 2400 30 L 2400 60 L 0 60 Z" />
+  <path class="w2" fill="#8B5CF6" opacity="0.2" d="M 0 20 Q 100 45 200 20 T 400 20 T 600 20 T 800 20 T 1000 20 T 1200 20 T 1400 20 T 1600 20 T 1800 20 T 2000 20 T 2200 20 T 2400 20 L 2400 60 L 0 60 Z" />
+  <path class="w3" fill="#FF006E" opacity="0.15" d="M 0 40 Q 75 25 150 40 T 300 40 T 450 40 T 600 40 T 750 40 T 900 40 T 1050 40 T 1200 40 T 1350 40 T 1500 40 T 1650 40 T 1800 40 T 1950 40 T 2100 40 T 2250 40 T 2400 40 L 2400 60 L 0 60 Z" />
+</svg>
